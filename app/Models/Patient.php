@@ -17,19 +17,23 @@ class Patient extends Model
     protected $fillable = [
         'first_name',
         'last_name',
+        'birth_date',
+        'gender',
         'cpf',
         'cns',
         'email',
         'phone',
         'whatsapp',
-        'birth_date',
-        'gender',
+        'emergency_contact_name',
+        'emergency_contact_phone',
         'blood_type',
         'allergies',
         'medical_conditions',
-        'emergency_contact_name',
-        'emergency_contact_phone',
+        'medications',
         'notes',
+        'has_insurance',
+        'insurance_provider',
+        'insurance_policy_number',
         'is_active',
     ];
 
@@ -40,6 +44,7 @@ class Patient extends Model
      */
     protected $casts = [
         'birth_date' => 'date',
+        'has_insurance' => 'boolean',
         'is_active' => 'boolean',
     ];
 
