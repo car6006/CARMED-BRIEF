@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Doctor extends Model
 {
@@ -42,5 +43,13 @@ class Doctor extends Model
     public function getFullNameAttribute(): string
     {
         return trim($this->first_name . ' ' . $this->last_name);
+    }
+
+    /**
+     * Get the encounters associated with the doctor.
+     */
+    public function encounters(): HasMany
+    {
+        return $this->hasMany(Encounter::class);
     }
 }
