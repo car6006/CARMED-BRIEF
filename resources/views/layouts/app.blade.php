@@ -13,38 +13,19 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <!-- Alpine.js CDN -->
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <!-- Theme Script -->
-        <script>
-            (function() {
-                const theme = localStorage.getItem('theme') || 'system';
-                if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                } else if (theme === 'light') {
-                    document.documentElement.classList.remove('dark');
-                } else {
-                    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                        document.documentElement.classList.add('dark');
-                    } else {
-                        document.documentElement.classList.remove('dark');
-                    }
-                }
-            })();
-        </script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+        <div class="min-h-screen bg-gray-100">
+            <livewire:layout.navigation />
 
             <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
+            @if (isset($header))
+                <header class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
-            @endisset
+            @endif
 
             <!-- Page Content -->
             <main>
