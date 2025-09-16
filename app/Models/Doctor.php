@@ -52,4 +52,12 @@ class Doctor extends Model
     {
         return $this->hasMany(Claim::class);
     }
+
+    /**
+     * Get the encounters associated with the doctor.
+     */
+    public function encounters(): HasMany
+    {
+        return $this->hasMany(Encounter::class);
+    }
 }
