@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <x-app-layout>
     <x-slot name="header">Doctors</x-slot>
     <div class="p-6 rounded-2xl bg-white dark:bg-gray-900 shadow-sm ring-1 ring-gray-200/60 dark:ring-gray-800 mt-6">
@@ -24,3 +25,20 @@
         @endif
     </div>
 </x-app-layout>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctors</title>
+</head>
+<body>
+    <h1>Doctors</h1>
+    <ul>
+        @foreach($doctors as $doctor)
+            <li>{{ $doctor->full_name }}</li>
+        @endforeach
+    </ul>
+</body>
+</html>
+>>>>>>> 2290fb2479c24a1e8f1fa889dc56e48c4c3059d8

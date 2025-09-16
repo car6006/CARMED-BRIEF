@@ -4,18 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
-=======
-use Illuminate\Database\Eloquent\Relations\HasMany;
->>>>>>> 2290fb2479c24a1e8f1fa889dc56e48c4c3059d8
 
-class Doctor extends Model
+class Patient extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
-    // Add fillable fields as needed
-    protected $fillable = ['name', 'specialty'];
-=======
 
     /**
      * The attributes that are mass assignable.
@@ -25,13 +17,22 @@ class Doctor extends Model
     protected $fillable = [
         'first_name',
         'last_name',
-        'crm',
-        'crm_uf',
-        'specialty',
+        'birth_date',
+        'gender',
+        'cpf',
         'email',
         'phone',
         'whatsapp',
-        'bio',
+        'emergency_contact_name',
+        'emergency_contact_phone',
+        'blood_type',
+        'allergies',
+        'medical_conditions',
+        'medications',
+        'notes',
+        'has_insurance',
+        'insurance_provider',
+        'insurance_policy_number',
         'is_active',
     ];
 
@@ -41,23 +42,16 @@ class Doctor extends Model
      * @var array<string, string>
      */
     protected $casts = [
+        'birth_date' => 'date',
+        'has_insurance' => 'boolean',
         'is_active' => 'boolean',
     ];
 
     /**
-     * Get the doctor's full name.
+     * Get the patient's full name.
      */
     public function getFullNameAttribute(): string
     {
         return trim($this->first_name . ' ' . $this->last_name);
     }
-
-    /**
-     * Get the encounters associated with the doctor.
-     */
-    public function encounters(): HasMany
-    {
-        return $this->hasMany(Encounter::class);
-    }
->>>>>>> 2290fb2479c24a1e8f1fa889dc56e48c4c3059d8
 }

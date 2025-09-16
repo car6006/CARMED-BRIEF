@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -42,4 +43,18 @@ class DoctorController extends Controller
     {
         // Destroy logic here
     }
+=======
+
+class DoctorController
+{
+    /**
+     * Display a listing of the doctors.
+     */
+    public function index()
+    {
+        $doctors = Doctor::all();
+
+        return view('doctors.index', compact('doctors'));
+    }
+>>>>>>> 2290fb2479c24a1e8f1fa889dc56e48c4c3059d8
 }
